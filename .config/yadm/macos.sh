@@ -30,6 +30,12 @@ fi
 # install atuin
 # curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
+# install code extensions
+curl -fsSL https://raw.githubusercontent.com/rmmgc/vscode-extensions-bulk-install/main/bulk-install.sh | sh -s ${__dir}/code_extensions.txt
+
+# install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # dock settings
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 40;

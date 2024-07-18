@@ -1,0 +1,27 @@
+[user]
+    name = r1cebank
+    email = siyuangao@pm.me
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvs1tgg3DvI8qSCz+nx4G6MR4uFnzYStMIoSP99OqWV
+[commit]
+    gpgsign = true
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[gpg]
+    format = ssh
+[core]
+    editor = vim
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+[init]
+    defaultBranch = main
+[push]
+    autoSetupRemote = true
+    useForceIfIncludes = true
+[delta]
+    enable = true
+[core]
+    excludesfile = ~/.gitignore_global

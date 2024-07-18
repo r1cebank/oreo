@@ -29,6 +29,32 @@ yabai -m config external_bar               all:10:0       \
                 right_padding              8              \
                 window_gap                 10
 
+# space configuration
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 web
+setup_space 2 term
+setup_space 3 code
+setup_space 4 docs
+
+yabai -m rule --add app="^Safari$" space=web
+yabai -m rule --add app="^Firefox$" space=web
+yabai -m rule --add app="^Orion$" space=web
+yabai -m rule --add app="^kitty$" space=term
+yabai -m rule --add app="^Code$" space=code
+
 # Exclude problematic apps from being managed:
 yabai -m rule --add app="^(LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
