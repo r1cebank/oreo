@@ -1,0 +1,8 @@
+#!/bin/sh
+
+system_type=$(uname -s)
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ "$system_type" = "Darwin" ]; then
+  bash ${__dir}/macos.sh
+fi
