@@ -30,11 +30,18 @@ fi
 # install atuin
 # curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
+# install fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
 # install code extensions
 curl -fsSL https://raw.githubusercontent.com/rmmgc/vscode-extensions-bulk-install/main/bulk-install.sh | sh -s ${__dir}/code_extensions.txt
 
 # install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# install nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+fisher install jorgebucaran/nvm.fish
 
 # dock settings
 defaults write com.apple.dock autohide -bool true
